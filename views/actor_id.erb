@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1><%=@actor_name%></h1>
+
+    <table>
+      <table style="width=500px">
+        <tr>
+          <th>Movie</th>
+          <th>Character</th>
+        </tr>
+      <%@actor_info.each do |movie|%>
+        <tr>
+          <td><a href="/movies/<%=movie["movie_id"]%>"><%=movie["title"]%></a></td>
+          <td><%=movie["character"]%></td>
+        </tr>
+      <%end%></table>
+
+  </body>
+</html>
