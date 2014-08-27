@@ -6,6 +6,14 @@
   </head>
   <body>
     <h1>Movies</h1>
+
+      <div class="sort">
+        Sort by:
+        <a href="/movies?order=rating">Rating</a> |
+        <a href="/movies"> Title </a> |
+        <a href="/movies?order=year"> Year </a>
+      </div>
+
       <table>
         <tr>
           <th>Title</th>
@@ -13,17 +21,19 @@
           <th>Genre</th>
           <th>Studio</th>
           <th>Rating</th>
-        </tr>
-      <%@moviesdb.each do |movie|%><tr>
-        <td> <a href="/movies/<%=movie["id"]%>"><%=movie["title"]%></a></td>
-        <td> <%=movie["year"]%>     </td>
-        <td> <%=movie["studio"]%>   </td>
-        <td> <%=movie["genre"]%>    </td>
-        <td> <%=movie["rating"]%>   </td>
-        <td> </td>
-      </tr> <%end%>
+        </tr><%@moviesdb.each do |movie|%><tr>
+          <td> <a href="/movies/<%=movie["id"]%>"><%=movie["title"]%></a></td>
+          <td> <%=movie["year"]%>     </td>
+          <td> <%=movie["studio"]%>   </td>
+          <td> <%=movie["genre"]%>    </td>
+          <td> <%=movie["rating"]%>   </td>
+        </tr> <%end%>
       </table>
 
+      <div class="pagination">
+          <a href="/movies?<%if params[:order]%>order=<%=params[:order]%>&<%end%>page=<%= @previous_page%>"><<</a>
+          <a href="/movies?<%if params[:order]%>order=<%=params[:order]%>&<%end%>page=<%= @next_page%>">>></a>
+      </div>
   </body>
 </html>
 

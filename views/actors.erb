@@ -10,5 +10,9 @@
         <li><a href="/actors/<%=name["id"]%>"><%=name["name"]%></a></li>
       <%end%></ul>
 
+      <div class="pagination">
+          <a href="/actors?page=<%= @previous_page%>"><<</a>
+          <a href="/actors?page=<%= @next_page%>">>></a>
+      </div>
   </body>
 </html>
